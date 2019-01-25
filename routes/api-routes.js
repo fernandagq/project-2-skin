@@ -40,4 +40,11 @@ module.exports = app => {
       });
     });
   });
+
+  //api route for searching for a product.
+  app.get("/api/product/:product", (req, res) => {
+    const product = req.params.product;
+    console.log(product);
+    db.Beauty.findAll({where: {ProductName: product}})
+  });
 };

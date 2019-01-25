@@ -35,7 +35,7 @@ app.use(express.static("public"));
 
 //sync and connect
 const PORT = process.env.PORT || 8080;
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Server listening on PORT ${PORT}`);
   });
