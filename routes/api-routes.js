@@ -40,4 +40,9 @@ module.exports = app => {
       });
     });
   });
+
+  app.get("/api/product/:product", (req, res) => {
+    const product = req.params.product;
+    console.log(product);
+  });
 };
