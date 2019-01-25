@@ -45,6 +45,8 @@ module.exports = app => {
   app.get("/api/product/:product", (req, res) => {
     const product = req.params.product;
     console.log(product);
-    db.Beauty.findAll({where: {ProductName: product}})
+    db.CaliProducts.findAll({where: {ProductName: product}}).then(data=>{
+      res.json(data)
+    })
   });
 };

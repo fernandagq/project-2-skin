@@ -6,7 +6,7 @@
  - Database: MySQL
  - OCR: Sequelize
  - Template Engine: Handlebars
- - CSS: 
- - Analysis: 
+ - CSS: Bootstrap
+ - Data: CSCP 
 
 https://skinproducts.herokuapp.com/
