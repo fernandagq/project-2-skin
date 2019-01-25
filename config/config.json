@@ -1,5 +1,5 @@
 {
-  "_comment": "This file provides the information sequelize neeeds to connect to our database",
+  "_comment": "This file provides the information sequelize neeeds to connect to the database on our computer when we run the server on our computer (development), or to connect to jawsdb when we run the server from heroku (production)",
   "development": {
     "username": "root",
     "password": null,
