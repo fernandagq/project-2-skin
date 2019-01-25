@@ -2,10 +2,10 @@
 
 Something to do with skin something.
 
-Server: Express
-Database: MySQL
-OCR: Sequelize
-Template Engine: Handlebars
-CSS: 
-Analysis: 
+ - Server: Express
+ - Database: MySQL
+ - OCR: Sequelize
+ - Template Engine: Handlebars
+ - CSS: 
+ - Analysis: 
 
