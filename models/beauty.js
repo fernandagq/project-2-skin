@@ -14,21 +14,21 @@
 //this makes a table in mysql that can be reached by other files in this program by importing './models' and calling db.Beauty.
 
 module.exports = function(sequelize, DataTypes) {
-  const Beauty = sequelize.define("Beauty", {
-    CDPHId: DataTypes.STRING,
+  const Product = sequelize.define("Product", {
+    CDPHId: DataTypes.INTEGER,
     ProductName: DataTypes.STRING,
     CSFId: DataTypes.STRING,
     CSF: DataTypes.STRING,
-    CompanyId: DataTypes.STRING,
+    CompanyId: DataTypes.INTEGER,
     CompanyName: DataTypes.STRING,
     BrandName: DataTypes.STRING,
-    PrimaryCategoryId: DataTypes.STRING,
+    PrimaryCategoryId: DataTypes.INTEGER,
     PrimaryCategory: DataTypes.STRING,
-    SubCategoryId: DataTypes.STRING,
+    SubCategoryId: DataTypes.INTEGER,
     SubCategory: DataTypes.STRING,
-    CasId: DataTypes.STRING,
+    CasId: DataTypes.INTEGER,
     CasNumber: DataTypes.STRING,
-    ChemicalId: DataTypes.STRING,
+    ChemicalId: DataTypes.INTEGER,
     ChemicalName: DataTypes.STRING,
     InitialDateReported: DataTypes.STRING,
     MostRecentDateReported: DataTypes.STRING,
@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
     ChemicalCreatedAt: DataTypes.STRING,
     ChemicalUpdatedAt: DataTypes.STRING,
     ChemicalDateRemoved: DataTypes.STRING,
-    ChemicalCount: DataTypes.STRING
+    ChemicalCount: DataTypes.INTEGER
   });
-  return Beauty;
+  return Product;
 };
