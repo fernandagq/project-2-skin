@@ -45,8 +45,18 @@ module.exports = app => {
   app.get("/api/product/:product", (req, res) => {
     const product = req.params.product;
     console.log(product);
-    db.CaliProducts.findAll({where: {ProductName: product}}).then(data=>{
-      res.json(data)
-    })
+    db.CaliProducts.findAll({ where: { ProductName: product } }).then(data => {
+      res.json(data);
+    });
+  });
+
+  app.get("/api/ingredient/:ingredient", (req, res) => {
+    const ingredient = req.params.ingredient;
+    console.log(ingredient);
+    db.CaliProducts.findAll({ where: { ChemicalName: ingredient } }).then(
+      data => {
+        res.json(data);
+      }
+    );
   });
 };
