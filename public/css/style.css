@@ -1,3 +1,26 @@
+/* global */
+
+
+/* navbar */
+
+
+
+
+/* hero section */
 h1 {
-color: red;
+    font-family: 'Major Mono Display';
+}
+
+/* results */
+
+#results .row {
+    background: pink;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+#results .row .col-md-4,
+#results .row .col-md-8 {
+    padding: 10px;
 }
