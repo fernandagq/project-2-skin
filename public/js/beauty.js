@@ -24,8 +24,6 @@ $("#productBtn").on("click", function(event) {
     // });
 
     // build results
-    resultBuild();
-
 
     // empty inputs
     $("#productSearch").val("");
@@ -35,19 +33,28 @@ $("#productBtn").on("click", function(event) {
 // displaying info
 function beautyResult(e) {
     console.log(e);
+    resultBuild(e);
 
     // create info based on data returned
 }
 
 function resultBuild(e) {
-    var results = $("<section>");
-    
-    var rowDiv = $("<div>");
-    $(rowDiv).attr("class", "row");
-    var col4 = $("<div>");
-    $(col4).attr("class", "col-md-4 col-sm-12");
-    var col8 = $("<div>");
-    $(col8).attr("class", "col-md-8 col-sm-12");
 
-    
+    // build results container
+    var resultContainer = $("<section>");
+    $(resultContainer).text(e.product);
+    $("#results").append(resultContainer);
+
+    // build row to contain the columns
+
+    // img in column (background-img) for size adjustment?
+
+    // column with text
+        // product name and brand
+        // product category
+
+        // ingredients
+
+        // warnings/testing
+
 }
