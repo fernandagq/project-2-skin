@@ -19,6 +19,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">Login Modal</li>
                 <li class="nav-item"><a href="./research.html">Research</a></li>
                 <li class="nav-item"><a href="./about.html">About</a></li>
             </ul>
@@ -26,27 +27,19 @@
     </nav>
 
     <section id="hero">
-        <h1>What the Face</h1>
+        <div class="middle-box">
+            <h1>What the Face</h1>
+    
 
-        <form autocomplete="off">
-            <input type="text" id="productSearch" placeholder="Lip Gloss">
-            <input type="text" id="brandSearch" placeholder="Revlon">
-            <button id="productBtn">Submit Your Search</button>
-        </form>
 
-        <section id="results">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="https://www.sephora.com/productimages/sku/s1848522-main-hero-300.jpg">
-                </div>
-                <div class="col-md-8">
-                    <h2>Kat Von D</h2>
-                    <h4>Shade + Light Face Contour Refillable Palette</h4>
-        
-                    <p></p>
-                </div>
-            </div>
-        </section>
+            <form autocomplete="off">
+                <input type="text" id="productSearch" placeholder="Product Name">
+                <input type="text" id="brandSearch" placeholder="Brand">
+                <button id="productBtn">Submit Your Search</button>
+            </form>
+        </div>
+
+        <section id="results"></section>
     </section>
 
 
