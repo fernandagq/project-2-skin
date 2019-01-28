@@ -2,13 +2,39 @@
 
 body, html {
     height: 100%;
-    background: #F5F5F5;
 }
 
 /* navbar */
 
+.navbar-light {
+    background: white !important;
+    position: relative;
+    padding: 10px;
+}
 
+.navbar-brand {
+    position: relative;
+    left: 5%;
+}
 
+#navbarNav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background: yellow; */
+    width: 30%;
+    max-width: 300px;
+    position: absolute;
+    right: 5%;
+}
+
+#navbarNav a {
+    color: black;
+}
+
+#navbarNav a:hover {
+    text-decoration: line-through;
+}
 
 /* hero section */
 h1 {
@@ -78,7 +104,7 @@ h1 {
     /* background: pink; */
     padding: 20px;
     max-width: 1000px;
-    margin: 100px auto;
+    margin: 100px auto 50px;
 }
 
 #results h1 {
@@ -92,6 +118,7 @@ h1 {
 
 #results p {
     text-align: left;
+    font-family: 'Roboto';
 }
 
 #results .row .col-md-5,
@@ -105,4 +132,17 @@ h1 {
 #results img {
     display: block;
     margin: auto;
+}
+
+/* footer */
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+footer h5, footer h6 {
+    font-weight: 200;
+    font-family: 'Major Mono Display';
 }
