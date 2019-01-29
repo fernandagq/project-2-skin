@@ -18,11 +18,11 @@ $("#productBtn").on("click", function(event) {
 
     beautyResult(beautySearch);
 
-    // $.post("/api/beautySearch", beautySearch)
-    // .then(function(data) {
-    //     console.log(data);
-    //     // run function for displaying info
-    // });
+    $.get("/api/beautySearch", beautySearch)
+    .then(function(data) {
+        console.log(data);
+        // run function for displaying info
+    });
 
     // build results
 
