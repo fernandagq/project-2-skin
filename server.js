@@ -1,46 +1,31 @@
-/*   ____  ____   ___ __ ____  ___  __   ____     ____     ____
-     6MMMMb `MM(   )P' `M6MMMMb `MM 6MM  6MMMMb   6MMMMb\  6MMMMb\
-    6M'  `Mb `MM` ,P    MM'  `Mb MM69 " 6M'  `Mb MM'    ` MM'    `
-    MM    MM  `MM,P     MM    MM MM'    MM    MM YM.      YM.
-    MMMMMMMM   `MM.     MM    MM MM     MMMMMMMM  YMMMMb   YMMMMb
-    MM         d`MM.    MM    MM MM     MM            `Mb      `Mb
-    YM    d9  d' `MM.   MM.  ,M9 MM     YM    d9 L    ,MM L    ,MM
-     YMMMM9 _d_  _)MM_  MMYMMM9 _MM_     YMMMM9  MYMMMM9  MYMMMM9
-                        MM
-                        MM
-                       _MM_
-*/
-//express
-const express = require("express");
-const app = express();
+var express = require("express");
 var bodyParser = require("body-parser");
 var session = require("express-session");
 var passport = require("./config/passport");
 var  exphbs = require('express-handlebars');
+var serveStatic = require('serve-static');
 
-//sequelize
-const db = require("./models");
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
 
-//routes
-require("./routes/api-routes")(app);
-require("./routes/html-routes")(app);
-
-//handlebars
-const exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-//data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-//public folder
+var app = express();
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'express-handlebars');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(session({ secret: "keyboard cat", resave: true, 
+//when you login that session has a unique key, with passport 
+saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-//sync and connect
-const PORT = process.env.PORT || 8080;
-db.sequelize.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server listening on PORT ${PORT}`);
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log('Listening on port '+ PORT);
   });
 });
+
