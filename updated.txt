@@ -1,5 +1,5 @@
 Rating ,Good,
-			                    1, 2-Hexanediol
+			                    1 2-Hexanediol
 			                ,Good,
 			                    10-Hydroxydecanoic Acid
 			                ,Good,

@@ -44,8 +44,10 @@ module.exports = app => {
   //api route for searching for a product.
   app.get("/api/product/:product", (req, res) => {
     const product = req.params.product;
-    console.log(product);
-    db.CaliProducts.findAll({ where: { ProductName: product } }).then(data => {
+    const parsedproduct = product.replace(/%20/g,' ')
+    console.log(parsedproduct);
+    db.CaliProducts.findAll({ where: { ProductName: parsedproduct } }).then(data => {
+      console.log(data)
       res.json(data);
     });
   });
