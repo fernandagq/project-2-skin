@@ -10,7 +10,7 @@ var db = require("./models");
 
 var app = express();
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'express-handlebars');
+app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
