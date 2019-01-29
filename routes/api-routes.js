@@ -12,6 +12,9 @@
 */
 
 const db = require("../models");
+var passport = require('../config/passport.js');
+var path = require('path');
+var isAuthenticated = require ('../config/isAuthenticated');
 
 module.exports = app => {
   //This route I made for test purposes. It inserts 4 rows of test data into our test table.
@@ -62,4 +65,47 @@ module.exports = app => {
     );
   });
   
+};
+
+
+module.exports = function(app){
+  app.post("/api/login", passport.authenticate('local'),
+function(req,res){
+   res.json('/members');
+});
+
+app.post('/api/signup', function(req, res){
+   console.log(req.body);
+   db.User.create({
+       email: req.body.email,
+       password: req.body.password
+   }).then(function () {
+       res.redirect(307, '/api/login');
+   }).catch(function (err){
+       console.log(err);
+       res.json(err);
+   });
+});
+
+app.get('/logout', function (req, res){
+   req.logout();
+   res.redirect('/');
+});
+
+app.get('/login', function (req, res){
+  req.login();
+  res.redirect('/members');
+});
+
+app.get('/api/user_data', function(req, res){
+   if(!req.user){
+       res.json({});
+   }
+   else{
+       res.json({
+           email:req.user.email,
+           id:req.user.id
+       });
+   }
+});
 };

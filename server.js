@@ -13,6 +13,10 @@
 //express
 const express = require("express");
 const app = express();
+var bodyParser = require("body-parser");
+var session = require("express-session");
+var passport = require("./config/passport");
+var  exphbs = require('express-handlebars');
 
 //sequelize
 const db = require("./models");

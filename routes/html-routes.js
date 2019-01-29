@@ -11,6 +11,8 @@
    _MM_    _MM_   _MM_    _M_      _MM_MMMMMMM
 */
 const db = require("../models");
+var path = require('path');
+var isAuthenticated = require('../config/isAuthenticated.js');
 
 module.exports = app => {
   //this is the get request for the home page. It currently gets all rows from the database and uses handlebars to render the data in the view
@@ -20,3 +22,30 @@ module.exports = app => {
     });
   });
 };
+
+module.exports = function(app){
+  app.get('/', function (req, res){
+      if(req.user){
+          res.redirect('/members');
+      }
+      
+      res.render('signup');
+  });
+
+  app.get('/login', function(req, res){
+      if(req.user){
+          res.redirect('/members');
+      }
+      res.render("/login");
+  });
+
+  app.get('/members', isAuthenticated, function (req, res){
+      res.render('/members');
+  });
+
+  app.get('/logout', function(req, res){
+      req.logout();
+          res.redirect('/');
+  });
+};
+
