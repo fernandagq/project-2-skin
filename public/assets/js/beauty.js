@@ -20,7 +20,7 @@ $("#ingredientBtn").on("click", function(event) {
   var ingredient = $("#ingredientSearch").val();
 
   $.get("/api/ingredient/" + ingredient, function(data) {
-    location.assign("/api/ingredient/" + ingredient);
+    location.assign("/api/ingredientrate/" + ingredient);
   });
 
   $("#productSearch").val("");
