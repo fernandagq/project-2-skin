@@ -13,8 +13,9 @@
 
         <section id="results">
 
-          {{#each data}}
-            <p>{{this.ProductName}}</p>
+          {{#each products}}
+            <p>{{this.ProductName}} in {{this.CSF}}</p>
+            <p>{{this.BrandName}}</p>
             <p>Possibly harmful chemical found in this product: {{this.ChemicalName}}</p>
           {{/each}}
 

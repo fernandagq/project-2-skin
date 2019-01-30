@@ -23,7 +23,7 @@ module.exports = app => {
     console.log(parsedproduct);
     db.CaliProducts.findAll({ where: { ProductName: parsedproduct } }).then(
       data => {
-        res.json(data);
+        res.render("index", {products: data});
       }
     );
   });
