@@ -47,7 +47,7 @@ module.exports = app => {
   //api route for searching for a product.
   app.get("/api/product/:product", (req, res) => {
     const product = req.params.product;
-    const parsedproduct = product.replace(/%20/g,' ')
+    const parsedproduct = product.replace(/%20/g, " ");
     console.log(parsedproduct);
     db.CaliProducts.findAll({ where: { ProductName: product } }).then(data => {
       // console.log(data)
@@ -56,16 +56,30 @@ module.exports = app => {
       // res.render("index", {ProductName: data});
       console.log(data);
     });
-  });
-
-  app.get("/api/ingredient/:ingredient", (req, res) => {
-    const ingredient = req.params.ingredient;
-    console.log(ingredient);
-    db.CaliProducts.findAll({ where: { ChemicalName: ingredient } }).then(
+    db.CaliProducts.findAll({ where: { ProductName: parsedproduct } }).then(
       data => {
+        console.log(data);
         res.json(data);
       }
     );
   });
-  
+
+  app.get("/api/ingredient/:ingredient", (req, res) => {
+    const ingredient = req.params.ingredient;
+    db.CaliProducts.findAll({ where: { ChemicalName: ingredient } }).then(
+      data => res.json(data)
+    );
+  });
+
+  app.get("/api/ingredientrate/:ingredient", (req, res) => {
+    const ingredient = req.params.ingredient;
+    db.IngredientRatings.findAll({ where: { ChemicalName: ingredient } }).then(
+      data => res.json(data)
+    );
+  });
+
+  app.get("/api/ingredientimg/:ingredient", (req, res) => {
+    const ingredient = req.params.ingredient;
+    
+  })
 };

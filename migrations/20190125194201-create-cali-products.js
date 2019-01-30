@@ -76,11 +76,11 @@ module.exports = {
       },
       createdAt: {
         type: Sequelize.DATE,
-        defaultValue: "2019-01-25 19:59:43"
+        defaultValue: "1990-01-07 12:34:56"
       },
       updatedAt: {
         type: Sequelize.DATE,
-        defaultValue: "2019-01-25 19:59:43"
+        defaultValue: "1990-01-07 12:34:56"
       }
     });
   },
