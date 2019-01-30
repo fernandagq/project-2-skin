@@ -42,9 +42,4 @@ module.exports = app => {
       data => res.json(data)
     );
   });
-
-  app.get("/api/ingredientimg/:ingredient", (req, res) => {
-    const ingredient = req.params.ingredient;
-    
-  })
 };
