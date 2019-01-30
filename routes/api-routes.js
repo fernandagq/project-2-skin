@@ -22,7 +22,7 @@ module.exports = app => {
     const parsedproduct = product.replace(/%20/g, " ");
     db.CaliProducts.findAll({ where: { ProductName: parsedproduct } }).then(
       data => {
-        res.json(data);
+        res.render("index", {products: data});
       }
     );
   });

@@ -6,11 +6,21 @@ $("#productBtn").on("click", function(event) {
   var product = $("#productSearch").val();
 
   $.get("/api/product/" + product, function(data) {
-    location.assign("/api/product/" + product);
+    // location.assign("/api/product/" + product);
+    document.write(data);
+
+    var clearButton = $("<button>");
+    clearButton.text("Clear result").attr("id", "clearBtn");
+    $(clearButton).on("click", function() {
+        $("#results").html("");
+    });
+    $("#results").append(clearButton);
   });
 
   $("#productSearch").val("");
   $("#brandSearch").val("");
+
+  
 });
 
 $("#ingredientBtn").on("click", function(event) {
@@ -25,7 +35,17 @@ $("#ingredientBtn").on("click", function(event) {
 
   $("#productSearch").val("");
   $("#ingredientSearch").val("");
+
+  var clearButton = $("<button>");
+  clearButton.text("Clear result").attr("id", "clearBtn");
+  $(clearButton).on("click", function() {
+      $("#results").html("");
+  });
+  $("#results").append(clearButton);
+
 });
+
+
 
 // // displaying info
 // function beautyResult(e) {
@@ -55,11 +75,7 @@ $("#ingredientBtn").on("click", function(event) {
 //         `
 //     );
 
-//     var clearButton = $("<button>");
-//     clearButton.text("Clear result").attr("id", "clearBtn");
-//     $(clearButton).on("click", function() {
-//         resultContainer.html("");
-//     });
+    
 
 //     // img in column (background-img) for size adjustment?
 
