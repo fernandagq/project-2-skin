@@ -3,26 +3,12 @@ $("#productBtn").on("click", function(event) {
     event.preventDefault();
     $("#results").html("");
 
-    var product = $("#productSearch").val().trim();
-    var brand = $("#brandSearch").val().trim();
-    var summary = "As a 100% vegan and cruelty-free brand, Kat Von D Beauty is committed to creating hyper-performance beauty products that are completely free of animal-derived ingredients, and never tested on animals. That means you can conceal, contour and create with confidence knowing your products aren’t harming animals.We never use common cosmetic ingredients such as beeswax and carmine (a red dye made from beetles), and instead opt for kinder alternatives, without ever compromising on color. Now you can make compassionate choices without sacrificing bold, beautiful pigment and everlasting wear!";
-    var imgSrc = "https://www.sephora.com/productimages/sku/s1848522-main-hero-300.jpg";
 
-    // create the search object
-    var beautySearch = {
-        product: product,
-        brand: brand,
-        summary: summary,
-        imgSrc: imgSrc
-    };
+    var product = $("#productSearch").val();
 
-    beautyResult(beautySearch);
-
-    $.get("/api/beautySearch", beautySearch)
-    .then(function(data) {
-        console.log(data);
-        // run function for displaying info
-    });
+    $.get("/api/product/" + product, function (data) {
+        // console.log(data);
+    })
 
     // build results
 
