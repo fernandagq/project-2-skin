@@ -14,7 +14,7 @@
 const db = require("../models");
 var passport = require('../config/passport.js');
 var path = require('path');
-var isAuthenticated = require ('../config/isAuthenticated');
+var isAuthenticated = require ('../config/middleware/isAuthenticated');
 
 // module.exports = app => {
 //   //This route I made for test purposes. It inserts 4 rows of test data into our test table.

@@ -12,7 +12,7 @@
 */
 const db = require("../models");
 var path = require('path');
-var isAuthenticated = require('../config/isAuthenticated.js');
+var isAuthenticated = require('../config/middleware/isAuthenticated.js');
 
 // module.exports = app => {
 //   //this is the get request for the home page. It currently gets all rows from the database and uses handlebars to render the data in the view
