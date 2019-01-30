@@ -15,8 +15,8 @@ const db = require("../models");
 module.exports = app => {
   //this is the get request for the home page. It currently gets all rows from the database and uses handlebars to render the data in the view
   app.get("/", (req, res) => {
-    db.Exampletable.findAll({}).then(data => {
-      res.render("index", { data: data });
-    });
+
+      res.render("index", { data: [] });
+
   });
 };

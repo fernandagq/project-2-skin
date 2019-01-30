@@ -4,15 +4,19 @@
 
             <form autocomplete="off">
                 <input type="text" id="productSearch" placeholder="Product Name">
-                <input type="text" id="brandSearch" placeholder="Ingredient">
-                <button id="productBtn">Submit Your Search</button>
+                <button id="productBtn">Product Search</button>
+                <input type="text" id="ingredientSearch" placeholder="Ingredient">
+                <button id="ingredientBtn">Ingredient Search</button>
             </form>
 
         </div>
 
         <section id="results">
 
-          {{data}}
+          {{#each data}}
+            <p>{{this.ProductName}}</p>
+            <p>Possibly harmful chemical found in this product: {{this.ChemicalName}}</p>
+          {{/each}}
 
         </section>
     </section>

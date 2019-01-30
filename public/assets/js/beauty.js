@@ -1,69 +1,78 @@
 // home page product search
 $("#productBtn").on("click", function(event) {
-    event.preventDefault();
-    $("#results").html("");
+  event.preventDefault();
+  $("#results").html("");
 
+  var product = $("#productSearch").val();
 
-    var product = $("#productSearch").val();
+  $.get("/api/product/" + product, function(data) {
+    location.assign("/api/product/" + product);
+  });
 
-    $.get("/api/product/" + product, function (data) {
-        // console.log(data);
-    })
-
-    // build results
-
-    // empty inputs
-    $("#productSearch").val("");
-    $("#brandSearch").val("");
+  $("#productSearch").val("");
+  $("#brandSearch").val("");
 });
 
-// displaying info
-function beautyResult(e) {
-    console.log(e);
-    resultBuild(e);
+$("#ingredientBtn").on("click", function(event) {
+  event.preventDefault();
+  $("#results").html("");
 
-    // create info based on data returned
-}
+  var ingredient = $("#ingredientSearch").val();
 
-function resultBuild(e) {
+  $.get("/api/ingredient/" + ingredient, function(data) {
+    location.assign("/api/ingredient/" + ingredient);
+  });
 
-    // build results container
-    var resultContainer = $("<section>");
-    resultContainer.html("");
-    
+  $("#productSearch").val("");
+  $("#ingredientSearch").val("");
+});
 
-    // build row to contain the columns
-    var resultRow = $("<div>").attr("class", "row");
-    resultRow.html(
-        `
-            <div class="col-sm-12 col-md-5"><img src="${e.imgSrc}"></div>
+// // displaying info
+// function beautyResult(e) {
+//     console.log(e);
+//     resultBuild(e);
 
-            <div class="col-sm-12 col-md-7">
-                <h1>${e.product}</h1>
-                <h2>${e.brand}</h2>
-                <p>${e.summary}</p>
-            </div>
-        `
-    );
+//     // create info based on data returned
+// }
 
-    var clearButton = $("<button>");
-    clearButton.text("Clear result").attr("id", "clearBtn");
-    $(clearButton).on("click", function() {
-        resultContainer.html("");
-    });
+// function resultBuild(e) {
 
-    // img in column (background-img) for size adjustment?
+//     // build results container
+//     var resultContainer = $("<section>");
+//     resultContainer.html("");
 
-    // column with text
-        // product name and brand
-        // product category
+//     // build row to contain the columns
+//     var resultRow = $("<div>").attr("class", "row");
+//     resultRow.html(
+//         `
+//             <div class="col-sm-12 col-md-5"><img src="${e.imgSrc}"></div>
 
-        // ingredients
+//             <div class="col-sm-12 col-md-7">
+//                 <h1>${e.product}</h1>
+//                 <h2>${e.brand}</h2>
+//                 <p>${e.summary}</p>
+//             </div>
+//         `
+//     );
 
-        // warnings/testing
+//     var clearButton = $("<button>");
+//     clearButton.text("Clear result").attr("id", "clearBtn");
+//     $(clearButton).on("click", function() {
+//         resultContainer.html("");
+//     });
 
-    // appending stuff
-    $(resultContainer).append(resultRow);
-    $(resultRow).append(clearButton);
-    $("#results").append(resultContainer);
-}
+//     // img in column (background-img) for size adjustment?
+
+//     // column with text
+//         // product name and brand
+//         // product category
+
+//         // ingredients
+
+//         // warnings/testing
+
+//     // appending stuff
+//     $(resultContainer).append(resultRow);
+//     $(resultRow).append(clearButton);
+//     $("#results").append(resultContainer);
+// }
