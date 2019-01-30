@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var passport = require("./config/passport");
 var  exphbs = require('express-handlebars');
-var serveStatic = require('serve-static');
+// var serveStatic = require('serve-static');
 
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
