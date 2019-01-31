@@ -20,7 +20,6 @@ module.exports = app => {
   app.get("/api/product/:product", (req, res) => {
     const product = req.params.product;
     const parsedproduct = product.replace(/%20/g, " ");
-    console.log(parsedproduct);
     db.CaliProducts.findAll({ where: { ProductName: parsedproduct } }).then(
       data => {
         res.render("index", {products: data});
@@ -30,14 +29,16 @@ module.exports = app => {
 
   app.get("/api/ingredient/:ingredient", (req, res) => {
     const ingredient = req.params.ingredient;
-    db.CaliProducts.findAll({ where: { ChemicalName: ingredient } }).then(
+    const parsedingredient = ingredient.replace(/%20/g, " ");
+    db.CaliProducts.findAll({ where: { ChemicalName: parsedingredient } }).then(
       data => res.json(data)
-    );
+    )
   });
 
   app.get("/api/ingredientrate/:ingredient", (req, res) => {
     const ingredient = req.params.ingredient;
-    db.IngredientRatings.findAll({ where: { ChemicalName: ingredient } }).then(
+    const parsedingredient = ingredient.replace(/%20/g, " ");
+    db.IngredientRatings.findAll({ where: { ChemicalName: parsedingredient } }).then(
       data => res.json(data)
     );
   });

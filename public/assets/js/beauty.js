@@ -28,7 +28,9 @@ $("#ingredientBtn").on("click", function(event) {
   event.preventDefault();
   $("#results").html("");
 
-  var ingredient = $("#ingredientSearch").val();
+  $.get("/api/ingredient/" + ingredient, function(data) {
+    location.assign("/api/ingredientrate/" + ingredient);
+  });
 
   $.get("/api/ingredient/" + ingredient, function(data) {
     location.assign("/api/ingredient/" + ingredient);
