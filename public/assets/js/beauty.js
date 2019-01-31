@@ -24,8 +24,7 @@ $("#productBtn").on("click", function(event) {
   
 });
 
-
-
+// product rating search
 
 $("#ingredientBtn").on("click", function(event) {
   event.preventDefault();
@@ -39,4 +38,29 @@ $("#ingredientBtn").on("click", function(event) {
 
   $("#productSearch").val("");
   $("#ingredientSearch").val("");
+
+  var clearButton = $("<button>");
+  clearButton.text("Clear result").attr("id", "clearBtn");
+  $(clearButton).on("click", function() {
+      $("#results").html("");
+  });
+  $("#results").append(clearButton);
+
 });
+
+// $("#ingredientBtn").on("click", function(event) {
+//   event.preventDefault();
+//   $("#results").html("");
+
+//   var ingredient = $("#ingredientSearch").val();
+//   console.log(ingredient);
+
+
+
+//   $.get("/api/ingredientrate/" + ingredient, function(data) {
+//       console.log(data);
+//   });
+
+//   $("#productSearch").val("");
+//   $("#ingredientSearch").val("");
+// });
