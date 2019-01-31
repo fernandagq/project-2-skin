@@ -5,11 +5,27 @@ $("#productBtn").on("click", function(event) {
 
   var product = $("#productSearch").val();
 
-  location.assign("/api/product/" + product);
+  $.get("/api/product/" + product, function(res) {
+    // location.assign("/api/product/" + product);
+    // location.reload();
+
+    document.write(res);
+
+    var clearButton = $("<button>");
+    clearButton.text("Clear result").attr("id", "clearBtn");
+      $(clearButton).on("click", function() {
+        location.reload();
+      });
+
+    $(".clear").append(clearButton);
+  });
 
   $("#productSearch").val("");
-  $("#brandSearch").val("");
+  
 });
+
+
+
 
 $("#ingredientBtn").on("click", function(event) {
   event.preventDefault();
