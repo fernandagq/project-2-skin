@@ -1,23 +1,54 @@
-<section id="hero">
-        <div class="middle-box">
-            <h1>What the Face</h1>
+<h1>Makeup Routine</h1>
 
-            <form autocomplete="off">
-                <input type="text" id="productSearch" placeholder="Product Name">
-                <button id="productBtn">Product Search</button>
-                <input type="text" id="ingredientSearch" placeholder="Ingredient">
-                <button id="ingredientBtn">Ingredient Search</button>
-            </form>
+<h2>Daytime Products</h2>
 
-        </div>
+<ul>
+  {{#each Products}}
+    {{#unless day}}
+    <li>
+	{{this.name}}
 
-        <section id="results">
+	<button class="change-time" data-id="{{this.id}}" data-newtime="{{day}}">
+		{{#if day}}Day{{else}}Evening{{/if}}
+	</button>
 
-          {{#each products}}
-            <p>{{this.ProductName}} in {{this.CSF}}</p>
-            <p>{{this.BrandName}}</p>
-            <p>Possibly harmful chemical found in this product: {{this.ChemicalName}}</p>
-          {{/each}}
+	<button class="delete-product" data-id="{{this.id}}">DELETE!</button>
+</li>
+    {{/unless}}
+  {{/each}}
+</ul>
 
-        </section>
-    </section>
+<h2>Evening Routine</h2>
+
+<ul>
+  {{#each Products}}
+    {{#if day}}
+      <li>
+	{{this.name}}
+
+	<button class="change-time" data-id="{{this.id}}" data-newtime="{{day}}">
+		{{#if day}}Day{{else}}Evening{{/if}}
+	</button>
+
+	<button class="delete-product" data-id="{{this.id}}">DELETE!</button>
+</li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Product</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="pu">Product Name:</label>
+    <input type="text" id="pu" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="day">Time?</label><br>
+    <input type="radio" name="day" value="1" checked> Evening<br>
+    <input type="radio" name="day" value="0"> Day
+  </div>
+
+  <button type="submit">Add Product</button>
+</form>

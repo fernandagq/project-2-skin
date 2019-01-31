@@ -1,21 +1,23 @@
 {
-  "_comment": "This file provides the information sequelize neeeds to connect to the database on our computer when we run the server on our computer (development), or to connect to jawsdb when we run the server from heroku (production)",
   "development": {
     "username": "root",
     "password": null,
-    "database": "skindb",
+    "database": "product_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "skindb",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
