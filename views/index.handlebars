@@ -5,8 +5,8 @@
         <form autocomplete="off">
             <input type="text" id="productSearch" placeholder="Product Name">
             <button id="productBtn">Product Search</button>
-            {{!-- <input type="text" id="ingredientSearch" placeholder="Ingredient">
-            <button id="ingredientBtn">Ingredient Search</button> --}}
+            <input type="text" id="ingredientSearch" placeholder="Ingredient">
+            <button id="ingredientBtn">Ingredient Search</button>
         </form>
 
     </div>
@@ -20,8 +20,8 @@
                 <p class="category">{{this.PrimaryCategory}}</p>
             </div>
             <div class="col-sm-7">
-                <p>{{this.ProductName}}</p>
-                <p>{{this.BrandName}}</p>
+                <h2>{{this.ProductName}}</h2>
+                <h3>{{this.BrandName}}</h3>
                 <p>Possibly harmful chemical found in this product: {{this.ChemicalName}}</p>
             </div>
         </div>

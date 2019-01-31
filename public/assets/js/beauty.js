@@ -20,34 +20,31 @@ $("#productBtn").on("click", function(event) {
   });
 
   $("#productSearch").val("");
-  $("#brandSearch").val("");
-
-  
   
 });
 
 
-// $("#ingredientBtn").on("click", function(event) {
-//   event.preventDefault();
-//   $("#results").html("");
+$("#ingredientBtn").on("click", function(event) {
+  event.preventDefault();
+  $("#results").html("");
 
-//   var ingredient = $("#ingredientSearch").val();
+  var ingredient = $("#ingredientSearch").val();
 
-//   $.get("/api/ingredient/" + ingredient, function(data) {
-//     location.assign("/api/ingredient/" + ingredient);
-//   });
+  $.get("/api/ingredient/" + ingredient, function(data) {
+    location.assign("/api/ingredient/" + ingredient);
+  });
 
-//   $("#productSearch").val("");
-//   $("#ingredientSearch").val("");
+  $("#productSearch").val("");
+  $("#ingredientSearch").val("");
 
-//   var clearButton = $("<button>");
-//   clearButton.text("Clear result").attr("id", "clearBtn");
-//   $(clearButton).on("click", function() {
-//       $("#results").html("");
-//   });
-//   $("#results").append(clearButton);
+  var clearButton = $("<button>");
+  clearButton.text("Clear result").attr("id", "clearBtn");
+  $(clearButton).on("click", function() {
+      $("#results").html("");
+  });
+  $("#results").append(clearButton);
 
-// });
+});
 
 
 
