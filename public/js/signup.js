@@ -31,5 +31,18 @@ $(document).ready(function() {
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
     }
+    
+    $(".btn").on('click', function (event){
+      $.post('/api/login', {
+       data: userData
+        
+      }).then(function(data){
+
+      })
+      var userData = {
+        email: emailInput.val().trim(),
+        password: passwordInput.val().trim()
+    };
+  })
   });
   

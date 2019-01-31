@@ -66,21 +66,35 @@
 //   });
   
 // };
-
+var email;
 var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
+  app.get('/', function (req,res){
+    res.render('signup')
+  })
+  
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    email=req.body.email;
     res.json("/members");
   });
 
+  app.get('/members', function (req, res){
+    console.log(email)
+    
+      db.User.findOne({
+        where:{
+          email:email
+        }
+      }).then(function(dbuser){
+        res.render("members")
+      })
+  }) 
+
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    }).then(function() {
+    db.User.create(req.body).then(function() {
       res.redirect(307, "/api/login");
     }).catch(function(err) {
       console.log(err);
