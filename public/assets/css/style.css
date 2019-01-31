@@ -2,6 +2,7 @@
 
 body, html {
     height: 100%;
+    font-family: 'Roboto';
 }
 
 /* navbar */
@@ -30,6 +31,7 @@ body, html {
 
 #navbarNav a {
     color: black;
+    font-family: 'Roboto';
 }
 
 #navbarNav a:hover {
