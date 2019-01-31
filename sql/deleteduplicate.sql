@@ -9,5 +9,3 @@ DELETE t1 FROM CaliProducts t1
     CaliProducts t2 
 WHERE
     t1.id < t2.id AND t1.ProductName = t2.ProductName;
-    
-    

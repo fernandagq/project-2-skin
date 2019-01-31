@@ -32,7 +32,7 @@ module.exports = app => {
     const parsedingredient = ingredient.replace(/%20/g, " ");
     db.CaliProducts.findAll({ where: { ChemicalName: parsedingredient } }).then(
       data => res.json(data)
-    );
+    )
   });
 
   app.get("/api/ingredientrate/:ingredient", (req, res) => {
