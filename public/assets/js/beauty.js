@@ -8,6 +8,7 @@ $("#productBtn").on("click", function(event) {
   $.get("/api/product/" + product, function(res) {
     // location.assign("/api/product/" + product);
     // location.reload();
+
     document.write(res);
 
     var clearButton = $("<button>");
@@ -16,7 +17,7 @@ $("#productBtn").on("click", function(event) {
         location.reload();
       });
 
-    $("#results").append(clearButton);
+    $(".clear").append(clearButton);
   });
 
   $("#productSearch").val("");
@@ -24,9 +25,13 @@ $("#productBtn").on("click", function(event) {
 });
 
 
+
+
 $("#ingredientBtn").on("click", function(event) {
   event.preventDefault();
   $("#results").html("");
+
+  var ingredient = $("#ingredientSearch").val();
 
   $.get("/api/ingredient/" + ingredient, function(data) {
     location.assign("/api/ingredientrate/" + ingredient);

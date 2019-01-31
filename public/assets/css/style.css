@@ -5,6 +5,12 @@ body, html {
     font-family: 'Roboto';
 }
 
+#hero button:hover {
+    background: #eee;
+    color: white;
+    transition: 1s ease;
+}
+
 /* navbar */
 
 .navbar-light {
@@ -98,6 +104,7 @@ h1 {
     margin: auto;
     padding: 3px;
     font-size: 16px;
+    transition: 1s ease;
 }
 
 /* results */
@@ -113,8 +120,6 @@ h1 {
     text-align: left;
 }
 
-
-
 #results p {
     text-align: left;
     font-family: 'Roboto';
@@ -127,6 +132,15 @@ h1 {
     flex-direction: column;
     justify-content: middle;
 }
+
+#results {
+    margin: 100px auto;
+}
+
+.clear button {
+    margin: 30px auto;
+}
+
 
 /* footer */
 
