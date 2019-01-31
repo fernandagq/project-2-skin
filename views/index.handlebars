@@ -1,23 +1,34 @@
 <section id="hero">
-        <div class="middle-box">
-            <h1>What the Face</h1>
+    <div class="middle-box">
+        <h1>What the Face</h1>
 
-            <form autocomplete="off">
-                <input type="text" id="productSearch" placeholder="Product Name">
-                <button id="productBtn">Product Search</button>
-                <input type="text" id="ingredientSearch" placeholder="Ingredient">
-                <button id="ingredientBtn">Ingredient Search</button>
-            </form>
+        <form autocomplete="off">
+            <input type="text" id="productSearch" placeholder="Product Name">
+            <button id="productBtn">Product Search</button>
+            {{!-- <input type="text" id="ingredientSearch" placeholder="Ingredient">
+            <button id="ingredientBtn">Ingredient Search</button> --}}
+        </form>
 
+    </div>
+
+    <section id="results" class="container">
+
+        {{#each products}}
+
+        <div class="row">
+            <div class="col-sm-5">
+                <p class="category">{{this.PrimaryCategory}}</p>
+            </div>
+            <div class="col-sm-7">
+                <p>{{this.ProductName}}</p>
+                <p>{{this.BrandName}}</p>
+                <p>Possibly harmful chemical found in this product: {{this.ChemicalName}}</p>
+            </div>
         </div>
+        {{/each}}
 
-        <section id="results">
 
-          {{#each products}}
-            <p>{{this.ProductName}} in {{this.CSF}}</p>
-            <p>{{this.BrandName}}</p>
-            <p>Possibly harmful chemical found in this product: {{this.ChemicalName}}</p>
-          {{/each}}
 
-        </section>
+
     </section>
+</section>

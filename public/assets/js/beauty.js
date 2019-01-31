@@ -5,15 +5,17 @@ $("#productBtn").on("click", function(event) {
 
   var product = $("#productSearch").val();
 
-  $.get("/api/product/" + product, function(data) {
+  $.get("/api/product/" + product, function(res) {
     // location.assign("/api/product/" + product);
-    document.write(data);
+    // location.reload();
+    document.write(res);
 
     var clearButton = $("<button>");
     clearButton.text("Clear result").attr("id", "clearBtn");
-    $(clearButton).on("click", function() {
-        $("#results").html("");
-    });
+      $(clearButton).on("click", function() {
+        location.reload();
+      });
+
     $("#results").append(clearButton);
   });
 
@@ -21,29 +23,31 @@ $("#productBtn").on("click", function(event) {
   $("#brandSearch").val("");
 
   
+  
 });
 
-$("#ingredientBtn").on("click", function(event) {
-  event.preventDefault();
-  $("#results").html("");
 
-  var ingredient = $("#ingredientSearch").val();
+// $("#ingredientBtn").on("click", function(event) {
+//   event.preventDefault();
+//   $("#results").html("");
 
-  $.get("/api/ingredient/" + ingredient, function(data) {
-    location.assign("/api/ingredient/" + ingredient);
-  });
+//   var ingredient = $("#ingredientSearch").val();
 
-  $("#productSearch").val("");
-  $("#ingredientSearch").val("");
+//   $.get("/api/ingredient/" + ingredient, function(data) {
+//     location.assign("/api/ingredient/" + ingredient);
+//   });
 
-  var clearButton = $("<button>");
-  clearButton.text("Clear result").attr("id", "clearBtn");
-  $(clearButton).on("click", function() {
-      $("#results").html("");
-  });
-  $("#results").append(clearButton);
+//   $("#productSearch").val("");
+//   $("#ingredientSearch").val("");
 
-});
+//   var clearButton = $("<button>");
+//   clearButton.text("Clear result").attr("id", "clearBtn");
+//   $(clearButton).on("click", function() {
+//       $("#results").html("");
+//   });
+//   $("#results").append(clearButton);
+
+// });
 
 
 
