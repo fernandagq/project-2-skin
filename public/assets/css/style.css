@@ -2,6 +2,7 @@
 
 body, html {
     height: 100%;
+    font-family: 'Roboto';
 }
 
 /* navbar */
@@ -30,6 +31,7 @@ body, html {
 
 #navbarNav a {
     color: black;
+    font-family: 'Roboto';
 }
 
 #navbarNav a:hover {
@@ -107,14 +109,11 @@ h1 {
     margin: 100px auto 50px;
 }
 
-#results h1 {
-    text-align: right;
+#results h2, #results h3 {
+    text-align: left;
 }
 
-#results h2 {
-    text-align: right;
-    font-weight: 200;
-}
+
 
 #results p {
     text-align: left;
@@ -127,11 +126,6 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: middle;
-}
-
-#results img {
-    display: block;
-    margin: auto;
 }
 
 /* footer */
