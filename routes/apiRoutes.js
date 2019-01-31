@@ -4,7 +4,7 @@ module.exports = function(app){
   app.get("/", function (req, res ){
     db.Products.findAll({}).then(function(dbProducts){
       console.log(req.body)
-      console.log(dbProduct[0].name)
+      // console.log(dbProducts[0].name)
       // res.json(dbProducts)
       res.render("index", {Products:dbProducts})
     })
