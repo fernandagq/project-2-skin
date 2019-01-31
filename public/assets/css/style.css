@@ -3,15 +3,11 @@
 body, html {
     height: 100%;
     font-family: 'Roboto';
-<<<<<<< HEAD
-=======
 }
 
 #hero button:hover {
     background: #eee;
     color: white;
-    transition: 1s ease;
->>>>>>> c8f2b00039e277e81dea4768029e4ebffafb7788
 }
 
 /* navbar */
@@ -107,7 +103,6 @@ h1 {
     margin: auto;
     padding: 3px;
     font-size: 16px;
-    transition: 1s ease;
 }
 
 /* results */
@@ -122,11 +117,8 @@ h1 {
 #results h2, #results h3 {
     text-align: left;
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> c8f2b00039e277e81dea4768029e4ebffafb7788
 
 #results p {
     text-align: left;
@@ -141,8 +133,6 @@ h1 {
     justify-content: middle;
 }
 
-<<<<<<< HEAD
-=======
 #results {
     margin: 100px auto;
 }
@@ -152,7 +142,6 @@ h1 {
 }
 
 
->>>>>>> c8f2b00039e277e81dea4768029e4ebffafb7788
 /* footer */
 
 footer {
